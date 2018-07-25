@@ -9,7 +9,7 @@ parameters:
     docker_compose_image: apt:5000/compose:1.8.0
     apt_mk_version: "proposed"
     aptly_server_hostname: apt
-    aptly_server_address: 10.1.0.14
+    aptly_server_address: 127.0.0.1
     linux_repo_refresh_db: true
     infra_config_hostname: apt01
     salt_minion_ca_host: ${_param:infra_config_hostname}.${_param:cluster_domain}
@@ -17,8 +17,8 @@ parameters:
     cluster_node01_address: ${_param:aptly_server_address}
     admin_email: root@localhost
     # infra service addresses
-    infra_config_address: 10.4.0.15
-    infra_config_deploy_address: 10.1.0.15
+    infra_config_address: ${_param:aptly_server_address}
+    infra_config_deploy_address: ${_param:aptly_server_address}
 
     cluster_domain: mcp-offline.local
     cluster_name: mcp-offline
@@ -28,7 +28,7 @@ parameters:
 
     dns_server01: 8.8.8.8
     dns_server02: 8.8.4.4
-
+    # Stub's
     deploy_network_netmask: 255.255.0.0
     deploy_network_gateway: 10.0.0.1
 
@@ -87,6 +87,7 @@ parameters:
       service:
         apt-daily.timer:
           status: dead
+          enabled: false
       user:
         root:
           password: false
