@@ -8,10 +8,9 @@ classes:
 - system.salt.minion.ca.salt_master
 - system.salt.master.api
 - system.reclass.storage.salt
-- cluster.mcp-offline.infra
 - cluster.mcp-offline.infra.mirror
 - cluster.mcp-offline.infra.mirror.docker-registry
-
+- cluster.mcp-offline.infra
 parameters:
   _param:
     salt_master_base_environment: prd

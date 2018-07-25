@@ -90,3 +90,8 @@ parameters:
       user:
         root:
           password: false
+      package:
+        cloud-init:
+          version: latest
+        reclass:
+          version: latest
