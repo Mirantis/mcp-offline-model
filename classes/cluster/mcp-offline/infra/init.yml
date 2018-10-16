@@ -1,6 +1,6 @@
 classes:
+- system.defaults
 - system.linux.system.single.debian
-- system.openssh.server.team.cicd
 parameters:
   _param:
     # TODO: Uncomment next line "linux_system_user_sudo: true" during the deployment.

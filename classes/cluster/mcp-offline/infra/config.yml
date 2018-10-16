@@ -1,8 +1,8 @@
 classes:
 - system.linux.system.repo.mcp.salt
-- system.linux.system.repo.mcp.extra
+- system.linux.system.repo.mcp.apt_mirantis.extra
 - system.linux.system.repo.mcp.apt_mirantis.ubuntu
-- system.linux.system.repo.mcp.apt_mirantis.docker_legacy
+- system.linux.system.repo.mcp.apt_mirantis.docker
 - system.openssh.client.lab
 - system.salt.master.pkg
 - system.salt.minion.ca.salt_master
