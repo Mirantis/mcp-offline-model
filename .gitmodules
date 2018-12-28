@@ -1,6 +1,6 @@
 [submodule "classes/system"]
 	path = classes/system
-	url = https://github.com/Mirantis/reclass-system-salt-model.git
+	url = http://gerrit.mcp.mirantis.com/salt-models/reclass-system
 [submodule "classes/cluster/mcp-offline/infra/mirror"]
 	path = classes/cluster/mcp-offline/infra/mirror
-	url = https://github.com/Mirantis/mcp-local-repo-model
+	url = http://gerrit.mcp.mirantis.com/mcp/mcp-local-repo-model

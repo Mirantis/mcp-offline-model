@@ -1,5 +1,5 @@
 classes:
-- system.linux.system.repo.mcp.salt
+- system.linux.system.repo.mcp.apt_mirantis.salt-formulas
 - system.linux.system.repo.mcp.apt_mirantis.extra
 - system.linux.system.repo.mcp.apt_mirantis.ubuntu
 - system.linux.system.repo.mcp.apt_mirantis.docker
