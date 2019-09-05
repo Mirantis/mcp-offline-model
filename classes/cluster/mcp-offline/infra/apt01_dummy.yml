@@ -2,9 +2,13 @@ classes:
 - system.defaults
 - system.linux.system.single.debian
 - system.linux.system.repo.mcp.apt_mirantis.salt-formulas
+- system.linux.system.repo.mcp.apt_mirantis.update.salt-formulas
 - system.linux.system.repo.mcp.apt_mirantis.extra
+- system.linux.system.repo.mcp.apt_mirantis.update.extra
 - system.linux.system.repo.mcp.apt_mirantis.ubuntu
+- system.linux.system.repo.mcp.apt_mirantis.update.ubuntu
 - system.linux.system.repo.mcp.apt_mirantis.docker
+- system.linux.system.repo.mcp.apt_mirantis.update.docker
 - system.openssh.client.lab
 - system.salt.master.pkg
 - system.salt.minion.ca.salt_master
@@ -52,6 +56,16 @@ parameters:
     linux_system_codename: xenial
     salt_api_password_hash: "$6$YJog182m$2/VdfO/XQWrVbkQvh3Q3jSp941xQZOROdk6iJb2TfXkoMEi/Uu10sRqky7V3wHf7AYzMoAnr3hQyMC0esNMIn0"
     salt_master_host: ${_param:infra_config_deploy_address}
+
+    # Override DebMirror to use Rsync which is available only internally
+    # Public host is under CloudFront - http/https only
+    debmirror_mirrors_sync_method: rsync
+    debmirror_mirrors_host: "mirror-us.mcp.mirantis.net"
+    debmirror_mirrors_root: ":mirror/${_param:mcp_version}"
+    debmirror_mirrors_update_root: ":mirror/update/${_param:mcp_version}"
+    # TODO: drop both
+    #debmirror_mirrors_update_root: ":mirror/update/proposed"
+    #debmirror_mirrors_update_target_dir: "/srv/volumes/aptly/public/update/proposed/"
   salt:
     master:
       command_timeout: 240
@@ -97,6 +111,11 @@ parameters:
           version: latest
         reclass:
           version: latest
+  nginx:
+    server:
+      site:
+        nginx_proxy_salt_api:
+          enabled: false
   reclass:
     storage:
       data_source:
