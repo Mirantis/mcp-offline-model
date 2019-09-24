@@ -63,9 +63,6 @@ parameters:
     debmirror_mirrors_host: "mirror-us.mcp.mirantis.net"
     debmirror_mirrors_root: ":mirror/${_param:mcp_version}"
     debmirror_mirrors_update_root: ":mirror/update/${_param:mcp_version}"
-    # TODO: drop both
-    #debmirror_mirrors_update_root: ":mirror/update/proposed"
-    #debmirror_mirrors_update_target_dir: "/srv/volumes/aptly/public/update/proposed/"
   salt:
     master:
       command_timeout: 240
