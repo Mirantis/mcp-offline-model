@@ -22,7 +22,7 @@ parameters:
     # Don't set it "false" before you configure sudo policies and enable power users.
     # linux_system_user_sudo: true
     mcp_version: "2019.2.0"
-    mcp_tagged_version: "2019.2.21"
+    mcp_tagged_version: "2019.2.22"
 #    mcp_version: "proposed"
     aptly_server_hostname: apt
     aptly_server_address: 127.0.0.1
